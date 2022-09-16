@@ -5,13 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meightproject.databinding.ItemListaBinding
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ListItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lista, parent, false)
-
-        return ListItemViewHolder(view)
+        return ListItemViewHolder(
+            ItemListaBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
@@ -23,8 +28,8 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListItemViewHolder>() {
         return 3
     }
 
-    class ListItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var posicao = view.findViewById<TextView>(R.id.posicao)
-        var conteudo = view.findViewById<TextView>(R.id.conteudo)
+    class ListItemViewHolder(binding: ItemListaBinding) : RecyclerView.ViewHolder(binding.root) {
+        var posicao = binding.posicao
+        var conteudo = binding.conteudo
     }
 }
