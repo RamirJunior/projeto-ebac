@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Meight Project</string>
+    <string name="title_recycler">Lista de Contatos EBAC</string>
 </resources>
